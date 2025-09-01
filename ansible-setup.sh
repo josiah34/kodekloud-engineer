@@ -28,7 +28,7 @@ fi
 
 # Get ssh keys from other servers
 
-ssh-keyscan -H stapp01 stapp02 stapp03 >> /home/thor/.ssh/known_hosts
+ssh-keyscan -H stapp01 stapp02 stapp03 | tee -a /home/thor/.ssh/known_hosts /root/.ssh/known_hosts > /dev/null
 
 
 
