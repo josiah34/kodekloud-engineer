@@ -1,0 +1,18 @@
+---
+- name: Create group and user on all hosts
+  hosts: all
+  become: yes
+  tasks:
+    - name: Ensure group "nautilus_sftp_users" exists
+      ansible.builtin.group:
+        name: nautilus_sftp_users
+        state: present
+
+    - name: Ensure user "stark" exists and is in "nautilus_sftp_users"
+      ansible.builtin.user:
+        name: stark
+        state: present
+        groups: nautilus_sftp_users
+        append: yes
+        shell: /bin/bash
+        create_home: yes
