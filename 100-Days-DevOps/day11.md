@@ -39,6 +39,12 @@ With it now in my home directory I can copy it to /usr/share/tomcat/webapps
 
 ``sudo cp /home/tony/ROOT.war /usr/share/tomcat/webapps/``
 
+- Start the tomcat server
+``sudo systemctl start tomcat``
+
+- Check the status of the tomcat server
+``sudo systemctl status tomcat``
+
 - Make sure the webpage works directly on base URL i.e curl
 ``curl http://stapp01:3004``
 
