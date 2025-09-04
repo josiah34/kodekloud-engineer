@@ -20,6 +20,9 @@ d.Deploy it on this tomcat server and make sure the webpage works directly on ba
 - Configure it to run on port 3003
 ``sudo vi /etc/tomcat/server.xml``
 
+<img width="1300" height="717" alt="Screenshot 2025-09-04 194855" src="https://github.com/user-attachments/assets/bb47e9ce-749e-4fb5-be73-bb99aef16c8a" />
+
+
 - Deploy ROOT.war on tomcat server
 ```
 thor@jumphost ~$ scp /tmp/ROOT.war tony@stapp01:/usr/share/tomcat/webapps/
