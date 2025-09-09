@@ -124,4 +124,4 @@ n: port 3001)
 
 It is now working fine. I tested curl on port 3001 from jump host and it still does not work. Pointing towards a firewall issue on app server. After investigating iptables I found that a final rule will drop all traffic unless explicitly allowed earlier in the chain. 
 
-``sudo iptables -I INPUT 1 -p tcp --dport 8085 -j ACCEPT`` Will fix it. 
+``sudo iptables -I INPUT 1 -p tcp --dport 3001 -j ACCEPT`` Will fix it. 
