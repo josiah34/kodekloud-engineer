@@ -10,6 +10,7 @@ Once fixed, you can test the same using command curl http://stapp01:3001 command
 
 Note: Please do not try to alter the existing index.html code, as it will lead to task failure.
 
+<hr>
 
 ### Solution
 
