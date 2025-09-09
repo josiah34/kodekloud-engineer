@@ -7,6 +7,9 @@ inventory="
 stapp01 ansible_user=tony   ansible_password=Ir0nM@n   ansible_become_password=Ir0nM@n
 stapp02 ansible_user=steve  ansible_password=Am3ric@   ansible_become_password=Am3ric@
 stapp03 ansible_user=banner ansible_password=BigGr33n  ansible_become_password=BigGr33n
+
+[nautilus_db_servers]
+stdb01 ansible_user=peter   ansible_password=Sp!dy  ansible_become_password=Sp!dy
 "
 
 if [ "$EUID" -ne 0 ]; then
