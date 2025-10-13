@@ -1,0 +1,14 @@
+---
+- name: Distribute MOTD from jump host
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: Copy local motd file to remote servers
+      ansible.builtin.copy:
+        src: /home/thor/nautilus_banner       # path to MOTD file on your jump host
+        dest: /etc/motd        # path on remote servers
+        owner: root
+        group: root
+        mode: "0644"
+        backup: yes
