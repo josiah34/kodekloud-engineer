@@ -57,7 +57,7 @@ tcp    LISTEN     0      10     127.0.0.1:8082                  *:*             
   become: yes
   vars:
     service_name: httpd
-    service_port: 8086
+    service_port: 8082
 
   tasks:
     - name: Check if {{ service_name }} service is running
