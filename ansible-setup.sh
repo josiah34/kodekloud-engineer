@@ -10,6 +10,9 @@ stapp03 ansible_user=banner ansible_password=BigGr33n  ansible_become_password=B
 
 [nautilus_db_servers]
 stdb01 ansible_user=peter   ansible_password=Sp!dy  ansible_become_password=Sp!dy
+
+[lbr]
+stlb01 ansible_user=loki  ansible_password=Mischi3f  ansible_become_password=Mischi3f
 "
 
 if [ "$EUID" -ne 0 ]; then
@@ -31,7 +34,7 @@ fi
 
 # Get ssh keys from other servers
 
-ssh-keyscan -H stapp01 stapp02 stapp03 stdb01 | tee -a /home/thor/.ssh/known_hosts /root/.ssh/known_hosts > /dev/null
+ssh-keyscan -H stapp01 stapp02 stapp03 stdb01 stlb01 | tee -a /home/thor/.ssh/known_hosts /root/.ssh/known_hosts > /dev/null
 
 
 
