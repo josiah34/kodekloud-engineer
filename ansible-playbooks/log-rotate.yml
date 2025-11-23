@@ -1,0 +1,34 @@
+---
+- name: Install squid and setup logrotate
+  hosts: nautilus_app_servers
+  become: yes
+
+  tasks:
+    - name: Ensure squid package is installed
+      yum:
+        name: squid
+        state: present
+
+    - name: Ensure logrotate package is installed
+      yum:
+        name: logrotate
+        state: present
+    
+    - name: Configure logrotate for squid (overwrite default)
+      copy:
+        dest: /etc/logrotate.d/squid
+        mode: '0644'
+        content: |
+          /var/log/squid/*.log {
+              monthly
+              rotate 3
+              compress
+              delaycompress
+              missingok
+              notifempty
+              sharedscripts
+              postrotate
+                  /usr/sbin/squid -k rotate 2>/dev/null || true
+              endscript
+          }
+
