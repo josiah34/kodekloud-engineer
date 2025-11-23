@@ -1,0 +1,21 @@
+---
+- name: Create sudo user
+  hosts: nautilus_app_servers
+  become: yes
+
+  vars:
+    sudo_user: javed
+
+  tasks:
+    - name: Ensure {{ sudo_user }} user is present
+      user:
+        name: "{{ sudo_user }}"
+        shell: /bin/bash
+        groups: wheel
+        state: present
+    
+    - name: Configure passwordless sudo for {{ sudo_user }}
+      copy:
+        dest: "/etc/sudoers.d/{{ sudo_user }}"
+        mode: '0440'
+        content: "{{ sudo_user }} ALL=(ALL) NOPASSWD: ALL"
